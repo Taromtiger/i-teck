@@ -1,0 +1,41 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as globalMixins;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  background-color: var(--creame-color);
+
+  .features__wave {
+    top: -11px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 25px;
+
+    @media (min-width: var.$big-tablet) {
+      height: 500px;
+      margin-top: 60px;
+    }
+  }
+
+  &__hand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @include globalMixins.background-img(
+      $img-path: 'assets/images/initial/carousel-hand.png',
+      $size: contain
+    );
+  }
+}

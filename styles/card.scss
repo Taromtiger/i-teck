@@ -1,0 +1,43 @@
+@use 'styles/variables' as var;
+
+.card {
+  $double-gap: calc(var(--gap) * 2);
+
+  display: flex;
+  gap: $double-gap;
+
+  width: 100%;
+  padding: var(--gap);
+  border-radius: 15px;
+  background-color: var(--white-color);
+  box-shadow: -4.104px 11.276px 38px 0px rgb(45 42 61 /10%);
+
+  @media (max-width: var.$mobile) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  @media (min-width: var.$desktop) {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  img {
+    @media (max-width: var.$mobile) {
+      display: none;
+    }
+  }
+
+  &__stars {
+    svg {
+      fill: var(--yellow-color);
+    }
+  }
+}

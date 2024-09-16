@@ -1,0 +1,118 @@
+@use 'styles/variables' as var;
+@use 'mixins' as localMixins;
+@use 'styles/mixins' as globalMixins;
+
+.notero {
+  $double-gap: calc(var(--gap) * 2);
+
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+
+  @media (min-width: var.$desktop) {
+    padding-top: 150px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 50%;
+    @include globalMixins.background-img(
+      'assets/images/initial/notero-web.png'
+    );
+  }
+
+  &__container {
+    @media (min-width: var.$desktop) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__left,
+  &__right {
+    @media (min-width: var.$desktop) {
+      flex: 1;
+    }
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+  }
+
+  &__left {
+    position: relative;
+
+    @include localMixins.half-container-image(
+      'assets/images/initial/notero-ipad.png',
+      var.$mobile,
+      var.$tablet
+    );
+  }
+
+  &__animation {
+    position: absolute;
+    @include localMixins.rotate-center(
+      -15%,
+      'assets/images/initial/notero-bubbles.png'
+    );
+
+    overflow: clip;
+
+    animation: rotate-center 100s linear infinite both;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: $double-gap;
+
+    p,
+    a {
+      align-self: flex-start;
+    }
+  }
+
+  &__description {
+    line-height: 30px;
+
+    br {
+      display: none;
+
+      @media (min-width: var.$big-tablet) {
+        display: block;
+      }
+    }
+  }
+}
+
+.notero__benefit {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--creame-color);
+    border-radius: 50%;
+  }
+
+  svg {
+    fill: var(--violett-color);
+  }
+
+  p {
+    align-self: center;
+  }
+}

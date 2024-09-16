@@ -1,0 +1,118 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as globalMixins;
+
+.pricing {
+  margin-bottom: 100px;
+  $double-gap: calc(var(--gap) * 2);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__box {
+    display: flex;
+
+    @media (max-width: var.$big-tablet) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap) - 10px);
+
+    img {
+      height: 25px;
+    }
+  }
+
+  &__left,
+  &__right {
+    padding: $double-gap;
+    border: 1px solid var(--grey-color);
+    border-radius: 20px;
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    .text_smallest {
+      padding-bottom: var(--gap);
+      border-bottom: 1px solid var(--grey-color);
+    }
+  }
+
+  &__left {
+    .notero__benefit {
+      &:nth-child(n + 3) {
+        opacity: 0.5;
+      }
+    }
+
+    @media (min-width: var.$big-tablet) {
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    @media (max-width: var.$big-tablet) {
+      margin-bottom: var(--gap);
+    }
+  }
+
+  &__right {
+    position: relative;
+    background-color: var(--creame-color);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -49px;
+      right: 31px;
+      bottom: 0;
+      left: 0;
+      @include globalMixins.background-img(
+        $img-path: 'assets/images/initial/discount.png',
+        $position: top right,
+        $size: auto
+      );
+
+      @media (max-width: var.$big-tablet) {
+        top: 5px;
+        right: -25px;
+      }
+    }
+
+    @media (min-width: var.$big-tablet) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .notero__benefit {
+    margin-bottom: var(--gap);
+
+    div {
+      background-color: var(--violett-color);
+      svg {
+        fill: var(--white-color);
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .button {
+    width: 100%;
+
+    @media (min-width: var.$desktop) {
+      width: 40%;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as globalMixins;
+@use 'mixins' as localMixins;
+
+.testimonials {
+  $double-gap: calc(var(--gap) * 2);
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 69px 0;
+
+  @media (max-width: var.$tablet) {
+    margin-bottom: 40px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: $double-gap;
+
+    @media (min-width: var.$desktop) {
+      flex-direction: row;
+    }
+  }
+
+  &__left,
+  &__right {
+    @media (min-width: var.$desktop) {
+      flex: 1;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: $double-gap;
+    align-items: flex-start;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 30px;
+
+    @media (min-width: var.$mobile) {
+      gap: 45px;
+    }
+
+    &_left,
+    &_right {
+      max-width: 130px;
+      width: 100%;
+    }
+
+    &_left {
+      border-right: 1px solid var(--grey-color);
+    }
+
+    img,
+    p {
+      margin-bottom: 7px;
+    }
+
+    img {
+      height: 66px;
+      width: 66px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: var(--gap);
+  }
+
+  &__right {
+    position: relative;
+    height: 500px;
+
+    @media (max-width: var.$mobile) {
+      height: 400px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      bottom: -10%;
+      right: -10%;
+      z-index: -1;
+
+      @include localMixins.half-container-image(
+        'assets/images/initial/testimonials-globe.svg',
+        var.$mobile,
+        var.$tablet
+      );
+
+      animation: rotate-center 100s linear infinite both;
+
+      @media (max-width: var.$big-tablet) {
+        height: 600px;
+        top: -20%;
+      }
+
+      @media (max-width: var.$mobile) {
+        height: 500px;
+        top: -10%;
+      }
+    }
+  }
+
+  .card__stars {
+    margin-bottom: 7px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    .card:nth-child(2) {
+      align-self: flex-end;
+
+      @media (max-width: var.$desktop) {
+        align-self: flex-start;
+      }
+    }
+  }
+}

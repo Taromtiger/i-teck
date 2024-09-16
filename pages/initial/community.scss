@@ -1,0 +1,64 @@
+@use 'styles/variables' as var;
+
+.community {
+  margin-bottom: 75px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__content {
+    display: flex;
+    gap: var(--gap);
+  }
+
+  &__list {
+    width: 100%;
+    padding: var(--gap) calc(var(--gap) * 2);
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--grey-color);
+    border-radius: 10px;
+
+    @media (max-width: var.$tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    width: 30%;
+    &:not(:last-child) {
+      border-right: 1px solid var(--grey-color);
+    }
+
+    @media (max-width: var.$mobile) {
+      width: 100%;
+    }
+
+    @media (max-width: var.$tablet) {
+      &:not(:last-child) {
+        border-right: none;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: var(--gap);
+
+    svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--violett-color);
+    }
+  }
+}

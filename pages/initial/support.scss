@@ -1,0 +1,46 @@
+@use 'styles/variables' as var;
+
+.support {
+  margin-bottom: 100px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__content {
+    display: flex;
+    gap: var(--gap);
+
+    @media (max-width: var.$tablet) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+
+    .button-dropdown {
+      width: 100%;
+      border-bottom: 1px solid var(--grey-color);
+
+      &__top {
+        text-align: start;
+      }
+
+      @media (max-width: var.$tablet) {
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+  &__left {
+    @media (max-width: var.$tablet) {
+      border-bottom: 1px solid var(--grey-color);
+    }
+  }
+}

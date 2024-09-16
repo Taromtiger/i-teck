@@ -1,0 +1,38 @@
+// breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$big-tablet: 992px;
+$desktop: 1200px;
+$large: 1400px;
+
+:root {
+  // font
+  --default-font: 400 13px 'Inter', sans-serif;
+  --smallest-font: 400 10px 'Inter', sans-serif;
+  --smaller-font: 700 11px 'Inter', sans-serif;
+  --bigger-font: 700 18px 'Inter', sans-serif;
+  --biggest-font: 700 24px 'Inter', sans-serif;
+
+  // spacers
+  --gap: 10px;
+
+  --transition: 0.5s;
+
+  // z-index
+  --almost-nice-index: 68;
+  --nice-index: 69;
+  --bigger-than-nice-iondex: 70;
+
+  @media (min-width: $mobile) {
+    --gap: 10px;
+  }
+
+  @media (min-width: $big-tablet) {
+    --gap: 20px;
+    --default-font: 400 15px 'Inter', sans-serif;
+    --smallest-font: 400 11px 'Inter', sans-serif;
+    --smaller-font: 700 12px 'Inter', sans-serif;
+    --bigger-font: 700 20px 'Inter', sans-serif;
+    --biggest-font: 700 52px 'Inter', sans-serif;
+  }
+}
